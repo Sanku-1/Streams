@@ -60,45 +60,50 @@ public class Program {
 
     static void searchPersonList(Scanner scanner, ArrayList<Person> list) {
 
-        List<Person> filteredPeople = new ArrayList<>();
-        System.out.println("What Attribute Would You Like to Search By? \n 1. First Name \n 2. Last Name \n");
-        int command = scanner.nextInt();
-        scanner.nextLine();
-        switch (command) {
-            case 1:
-                System.out.println("Please enter the first name of the person you wish to search for:");
-                String inputFirstName = scanner.nextLine();
-                for (Person person:list) {
-                    if (person.getFirstName().equalsIgnoreCase(inputFirstName)) {
-                        filteredPeople.add(person);
+        try {
+            List<Person> filteredPeople = new ArrayList<>();
+            System.out.println("What Attribute Would You Like to Search By? \n 1. First Name \n 2. Last Name \n");
+            int command = scanner.nextInt();
+            scanner.nextLine();
+            switch (command) {
+                case 1:
+                    System.out.println("Please enter the first name of the person you wish to search for:");
+                    String inputFirstName = scanner.nextLine();
+                    for (Person person : list) {
+                        if (person.getFirstName().equalsIgnoreCase(inputFirstName)) {
+                            filteredPeople.add(person);
+                        }
                     }
-                }
-                if (filteredPeople.isEmpty()){
-                    System.out.println("No matching people found");
-                } else {
-                    for (Person person: filteredPeople) {
-                        System.out.println(person.getFirstName() + " " + person.getLastName() + "\n");
+                    if (filteredPeople.isEmpty()) {
+                        System.out.println("No matching people found");
+                    } else {
+                        for (Person person : filteredPeople) {
+                            System.out.println(person.getFirstName() + " " + person.getLastName() + " , age " + person.getAge() + "\n");
+                        }
                     }
-                }
-                break;
-            case 2:
-                System.out.println("Please enter the last name of the person you wish to search for:");
-                String inputLastName = scanner.nextLine();
-                for (Person person:list) {
-                    if (person.getLastName().equalsIgnoreCase(inputLastName)) {
-                        filteredPeople.add(person);
+                    break;
+                case 2:
+                    System.out.println("Please enter the last name of the person you wish to search for:");
+                    String inputLastName = scanner.nextLine();
+                    for (Person person : list) {
+                        if (person.getLastName().equalsIgnoreCase(inputLastName)) {
+                            filteredPeople.add(person);
+                        }
                     }
-                }
-                if (filteredPeople.isEmpty()){
-                    System.out.println("No matching people found");
-                } else {
-                    for (Person person: filteredPeople) {
-                        System.out.println(person.getFirstName() + " " + person.getLastName() + "\n");
+                    if (filteredPeople.isEmpty()) {
+                        System.out.println("No matching people found\n");
+                    } else {
+                        for (Person person : filteredPeople) {
+                            System.out.println(person.getFirstName() + " " + person.getLastName() + " , age " + person.getAge() + "\n");
+                        }
                     }
-                }
-                break;
-            default:
-                System.out.println("Invalid Selection, Please Try Again");
+                    break;
+                default:
+                    System.out.println("Invalid Selection, Please Try Again");
+            }
+        } catch (Exception e) {
+            System.err.println("Invalid Selection\n");
+            scanner.nextLine();
         }
     }
 
