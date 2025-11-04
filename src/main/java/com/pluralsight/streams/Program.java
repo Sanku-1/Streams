@@ -49,10 +49,27 @@ public class Program {
                     }
                     if (filteredPeople.isEmpty()){
                         System.out.println("No matching people found");
+                    } else {
+                        for (Person person: filteredPeople) {
+                            System.out.println(person.getFirstName() + person.getLastName() + "\n");
+                        }
                     }
                     break;
                 case 2:
-
+                    System.out.println("Please enter the last name of the person you wish to search for:");
+                    String inputLastName = scanner.nextLine();
+                    for (Person person:list) {
+                        if (person.getLastName().equalsIgnoreCase(inputLastName)) {
+                            filteredPeople.add(person);
+                        }
+                    }
+                    if (filteredPeople.isEmpty()){
+                        System.out.println("No matching people found");
+                    } else {
+                        for (Person person: filteredPeople) {
+                            System.out.println(person.getFirstName() + person.getLastName() + "\n");
+                        }
+                    }
                     break;
                 default:
                     System.out.println("Invalid Selection, Please Try Again");
