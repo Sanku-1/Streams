@@ -47,8 +47,8 @@ public class Program {
             switch (input.toUpperCase()) {
                 case "A" -> searchPersonList(scanner, people);
                 case "B" -> System.out.println("The average age of the people in this list is: " + averageAge(people));
-                case "C" -> lowestAge(people);
-                case "D" -> highestAge(people);
+                case "C" -> System.out.println(lowestAge(people));
+                case "D" -> System.out.println(highestAge(people));
                 case "X" -> running = false;
                 default -> System.out.println("Invalid option");
             }
