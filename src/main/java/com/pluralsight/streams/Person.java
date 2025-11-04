@@ -11,6 +11,9 @@ public class Person {
         this.age = age;
     }
 
+    public Person() {
+    }
+
     public String getFirstName() {
         return firstName;
     }
@@ -21,5 +24,17 @@ public class Person {
 
     public int getAge() {
         return age;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 }
