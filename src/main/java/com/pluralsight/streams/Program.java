@@ -46,15 +46,16 @@ public class Program {
 
             switch (input.toUpperCase()) {
                 case "A" -> searchPersonList(scanner, people);
-                case "B" -> System.out.println("The average age of the people in this list is: " + averageAge(people) + " year(s) old");
+                case "B" -> System.out.println("The average age of the people in this list is: " + averageAge(people) + " year(s) old" + "\n");
                 case "C" -> System.out.println(lowestAge(people));
                 case "D" -> System.out.println(highestAge(people));
                 case "X" -> running = false;
                 default -> System.out.println("Invalid option");
             }
 
-            scanner.close();
+//            scanner.close();
         }
+        scanner.close();
     }
 
     static void searchPersonList(Scanner scanner, ArrayList<Person> list) {
@@ -76,7 +77,7 @@ public class Program {
                     System.out.println("No matching people found");
                 } else {
                     for (Person person: filteredPeople) {
-                        System.out.println(person.getFirstName() + person.getLastName() + "\n");
+                        System.out.println(person.getFirstName() + " " + person.getLastName() + "\n");
                     }
                 }
                 break;
@@ -92,7 +93,7 @@ public class Program {
                     System.out.println("No matching people found");
                 } else {
                     for (Person person: filteredPeople) {
-                        System.out.println(person.getFirstName() + person.getLastName() + "\n");
+                        System.out.println(person.getFirstName() + " " + person.getLastName() + "\n");
                     }
                 }
                 break;
@@ -120,7 +121,7 @@ public class Program {
                 oldestPerson.setLastName(person.getLastName());
             }
         }
-        return "The oldest person in the collection is " + oldestPerson.getFirstName() + " " + oldestPerson.getLastName() + ", with an age of " + oldestPerson.getAge();
+        return "The oldest person in the collection is " + oldestPerson.getFirstName() + " " + oldestPerson.getLastName() + ", with an age of " + oldestPerson.getAge() + "\n";
     }
 
     static String lowestAge(ArrayList<Person> peopleList) {
@@ -134,7 +135,7 @@ public class Program {
                 youngestPerson.setLastName(person.getLastName());
             }
         }
-        return "The youngest person in the collection is " + youngestPerson.getFirstName() + " " + youngestPerson.getLastName() + ", with an age of " + youngestPerson.getAge();
+        return "The youngest person in the collection is " + youngestPerson.getFirstName() + " " + youngestPerson.getLastName() + ", with an age of " + youngestPerson.getAge() + "\n";
     }
 
 
