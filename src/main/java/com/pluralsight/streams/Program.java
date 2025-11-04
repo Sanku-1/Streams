@@ -32,8 +32,31 @@ public class Program {
         people.add(person10);
     }
 
-        static Person search() {
-            System.out.println("Select Wh");
+        static Person searchPersonList(Scanner scanner, ArrayList<Person> list) {
+
+            List<Person> filteredPeople = new ArrayList<>();
+            System.out.println("What Attribute Would You Like to Search By? \n 1. First Name \n 2. Last Name \n");
+            int command = scanner.nextInt();
+            scanner.nextLine();
+            switch (command) {
+                case 1:
+                    System.out.println("Please enter the first name of the person you wish to search for:");
+                    String inputFirstName = scanner.nextLine();
+                    for (Person person:list) {
+                        if (person.getFirstName().equalsIgnoreCase(inputFirstName)) {
+                            filteredPeople.add(person);
+                        }
+                    }
+                    if (filteredPeople.isEmpty()){
+                        System.out.println("No matching people found");
+                    }
+                    break;
+                case 2:
+
+                    break;
+                default:
+                    System.out.println("Invalid Selection, Please Try Again");
+            }
 
             return null;
         }
