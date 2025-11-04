@@ -46,7 +46,7 @@ public class Program {
 
             switch (input.toUpperCase()) {
                 case "A" -> searchPersonList(scanner, people);
-                case "B" -> System.out.println("The average age of the people in this list is: " + averageAge(people));
+                case "B" -> System.out.println("The average age of the people in this list is: " + averageAge(people) + " year(s) old");
                 case "C" -> System.out.println(lowestAge(people));
                 case "D" -> System.out.println(highestAge(people));
                 case "X" -> running = false;
@@ -114,6 +114,7 @@ public class Program {
         Person oldestPerson = new Person();
         for (Person person: peopleList) {
             if (person.getAge() > maxAge) {
+                maxAge = person.getAge();
                 oldestPerson.setAge(person.getAge());
                 oldestPerson.setFirstName(person.getFirstName());
                 oldestPerson.setLastName(person.getLastName());
@@ -127,6 +128,7 @@ public class Program {
         Person youngestPerson = new Person();
         for (Person person: peopleList) {
             if (person.getAge() < minAge) {
+                minAge = person.getAge();
                 youngestPerson.setAge(person.getAge());
                 youngestPerson.setFirstName(person.getFirstName());
                 youngestPerson.setLastName(person.getLastName());
